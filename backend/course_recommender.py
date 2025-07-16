@@ -37,6 +37,7 @@ Skills:
     try:
         response = model.generate_content(prompt)
         import json
+        import re
         # Try to extract JSON from the response
         text = response.text.strip()
         # Find the first and last curly braces to extract JSON
@@ -44,7 +45,16 @@ Skills:
         end = text.rfind('}') + 1
         if start != -1 and end != -1:
             json_str = text[start:end]
-            return json.loads(json_str)
+            # Remove trailing commas before } or ]
+            json_str = re.sub(r',\s*([}\]])', r'\1', json_str)
+            # Remove any lines that are just comments (if any)
+            json_str = re.sub(r'^\s*//.*$', '', json_str, flags=re.MULTILINE)
+            # Remove any non-ASCII/control characters
+            json_str = re.sub(r'[\x00-\x1F\x7F]', '', json_str)
+            try:
+                return json.loads(json_str)
+            except Exception as e:
+                return {"error": f"JSON decode error: {str(e)}", "raw": json_str}
         else:
             return {"error": "Could not parse Gemini response as JSON", "raw": text}
     except Exception as e:

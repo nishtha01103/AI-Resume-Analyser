@@ -12,7 +12,7 @@ const BulletEnhancer = () => {
     setOutput("");
 
     try {
-      const res = await axios.post("http://localhost:5000/enhance", {
+      const res = await axios.post("http://localhost:8000/enhance", {
         bullet: input,
       });
 
