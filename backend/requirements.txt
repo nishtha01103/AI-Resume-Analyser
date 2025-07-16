@@ -1,0 +1,16 @@
+Flask
+flask-cors
+pdfminer.six
+python-docx
+scikit-learn
+nltk
+sentence-transformers
+spacy
+google-generativeai
+python-dotenv
+pdfplumber
+pdf2image
+pytesseract
+gunicorn
+numpy==1.26.4
+
