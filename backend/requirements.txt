@@ -5,7 +5,6 @@ python-docx
 scikit-learn
 nltk
 sentence-transformers
-spacy
 google-generativeai
 python-dotenv
 pdfplumber

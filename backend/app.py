@@ -9,7 +9,7 @@ from bullet_enhancer import improve_bullet
 
 
 app = Flask(__name__, static_folder=None)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 @app.route('/analyze', methods=['POST'])
 def analyze_resume():

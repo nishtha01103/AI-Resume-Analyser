@@ -1,0 +1,33 @@
+# Python virtual environments
+venv/
+.env
+.env.*
+*.env
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# VSCode settings
+.vscode/
+
+# macOS system files
+.DS_Store
+
+# Node modules
+frontend/node_modules/
+
+# Build output
+frontend/build/
+backend/build/
+build/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Log files
+*.log
+
+# Ignore all environment files and folders
+*.env
+.env*/
